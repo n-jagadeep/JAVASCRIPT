@@ -7,18 +7,49 @@
     </head>
     <body>
 
-        <button onclick="playerMove(1)">
+        <button onclick="playerMove(1);">
             Rock
         </button>
-        <button onclick="playerMove(2)">
+        <button onclick="playerMove(2);">
             Paper
         </button>
-        <button onclick="playerMove(3)">
+        <button onclick="playerMove(3);">
             Scissor
         </button>
         <script>
-          function playerMove(Move){
+          function playerMove(playerMove){
             const computerMove = Math.round(Math.random() * (3 - 1) + 1);
+            let computer = ""
+            if(computerMove === 1){
+              computer = "Rock"
+            }else if(computerMove === 2){
+              computer = "Paper"
+            }else{
+              computer = "Scissor"
+            }
+            let result = "";
+            if (playerMove === computerMove){
+              result = "draw";
+            }else if(playerMove === 1){
+                    if(computerMove === 2){
+                      result = "lose";
+                    }else{
+                      result = "win";
+                    }
+            }else if(playerMove === 2){
+                    if(computerMove === 1){
+                      result = "win";
+                      }else{
+                        result = "lose";
+                      }
+            }else if(playerMove === 3){
+                    if(computerMove === 1){
+                      result = "lose";
+                    }else{
+                      result = "win";
+                    }
+            }
+            alert(`Computer chose ${computer}, result is ${result}`);
           }
         </script>
     </body>
