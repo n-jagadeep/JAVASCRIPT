@@ -7,14 +7,19 @@
     </head>
     <body>
 
-        <button>
+        <button onclick="playerMove(1)">
             Rock
         </button>
-        <button>
+        <button onclick="playerMove(2)">
             Paper
         </button>
-        <button>
+        <button onclick="playerMove(3)">
             Scissor
         </button>
+        <script>
+          function playerMove(Move){
+            const computerMove = Math.round(Math.random() * (3 - 1) + 1);
+          }
+        </script>
     </body>
 </html>
