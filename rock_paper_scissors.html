@@ -16,10 +16,18 @@
         <button onclick="playerMove(3);">
             Scissor
         </button>
+        <button onclick="score = {draw : 0,
+          win : 0,
+          lose : 0
+          };">
+            Reset
+        </button>
         <script>
-          let draw = 0;
-          let win = 0;
-          let lose = 0;
+          let score = {
+            draw : 0,
+            win : 0,
+            lose : 0
+          };
           function playerMove(playerMove){
             const computerMove = Math.round(Math.random() * (3 - 1) + 1);
             let computer = ""
@@ -33,36 +41,36 @@
             let result = "";
             if (playerMove === computerMove){
               result = "draw";
-              draw++;
+              score.draw++;
             }else if(playerMove === 1){
                     if(computerMove === 2){
                       result = "lose";
-                      lose++;
+                      score.lose++;
                     }else{
                       result = "win";
-                      win++;
+                      score.win++;
                     }
             }else if(playerMove === 2){
                     if(computerMove === 1){
                       result = "win";
-                      win++;
+                      score.win++;
                       }else{
                         result = "lose";
-                        lose++;
+                        score.lose++;
                       }
             }else if(playerMove === 3){
                     if(computerMove === 1){
                       result = "lose";
-                      lose++;
+                      score.lose++;
                     }else{
                       result = "win";
-                      win++;
+                      score.win++;
                     }
             }
             alert(`Computer chose ${computer}, result is ${result}\n 
-                    Wins : ${win}\n
-                    Lose : ${lose}\n
-                    Draw : ${draw}`);
+                    Wins : ${score.win}\n
+                    Lose : ${score.lose}\n
+                    Draw : ${score.draw}`);
           }
         </script>
     </body>
