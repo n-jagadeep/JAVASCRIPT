@@ -17,6 +17,9 @@
             Scissor
         </button>
         <script>
+          let draw = 0;
+          let win = 0;
+          let lose = 0;
           function playerMove(playerMove){
             const computerMove = Math.round(Math.random() * (3 - 1) + 1);
             let computer = ""
@@ -30,26 +33,36 @@
             let result = "";
             if (playerMove === computerMove){
               result = "draw";
+              draw++;
             }else if(playerMove === 1){
                     if(computerMove === 2){
                       result = "lose";
+                      lose++;
                     }else{
                       result = "win";
+                      win++;
                     }
             }else if(playerMove === 2){
                     if(computerMove === 1){
                       result = "win";
+                      win++;
                       }else{
                         result = "lose";
+                        lose++;
                       }
             }else if(playerMove === 3){
                     if(computerMove === 1){
                       result = "lose";
+                      lose++;
                     }else{
                       result = "win";
+                      win++;
                     }
             }
-            alert(`Computer chose ${computer}, result is ${result}`);
+            alert(`Computer chose ${computer}, result is ${result}\n 
+                    Wins : ${win}\n
+                    Lose : ${lose}\n
+                    Draw : ${draw}`);
           }
         </script>
     </body>
