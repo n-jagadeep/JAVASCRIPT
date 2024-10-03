@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Testing Dom using Subscribe button
+        </title>
+    </head>
+    <body>
+        <button class="button1" onclick="domTest();">
+            Subscribe
+        </button>
+        <script>
+          let element = ""
+          function domTest(){
+            element = document.getElementsByClassName("button1")[0];
+            if(element.innerText === "Subscribe"){
+              element.innerHTML = "Subscribed";
+            }else{
+              element.innerHTML = "Subscribe";
+            }
+          }
+        </script>
+    </body>
+</html>
