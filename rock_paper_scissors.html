@@ -9,16 +9,23 @@
         <p> Rock Paper Scissors Game</p>
         <p>
 
-        <button onclick="playerMove(1);">
+        <button onclick="playerMove(1);
+                          set_playermove('Rock');">
             Rock
         </button>
-        <button onclick="playerMove(2);">
+        <button onclick="playerMove(2);
+                          set_playermove('Paper');">
             Paper
         </button>
-        <button onclick="playerMove(3);">
+        <button onclick="playerMove(3);
+                          set_playermove('Scissors');">
             Scissor
         </button>
         </p>
+        <span id="Comp_Choice">Computer Choose:</span><br>
+        <span id="Player_choice">You Choose:</span><br>
+        <h1 id="message">Click Any Button To Start Playing</h1>
+
         <p>
           <div id="Wins">
             Wins:
@@ -30,13 +37,7 @@
             Draw:
           </div>
         </p>
-        <button onclick="score = {draw : 0,
-          win : 0,
-          lose : 0
-          };
-          wins.innerHTML = 'Wins:' + score.win;
-          lose.innerHTML = 'Lose:' + score.lose;
-          draw.innerHTML = 'Draw:' + score.draw;">
+        <button onclick="reset();">
             Reset
         </button>
         <script>
@@ -45,53 +46,73 @@
             win : 0,
             lose : 0
           };
-          let wins = document.getElementById("Wins");
-          let lose = document.getElementById("Lose");
-          let draw = document.getElementById("Draw");
+          function set_playermove(play){
+            Player_Choice.innerHTML = "You Choose:" + play;
+          }
+          function reset(){
+            score = {draw : 0,
+                    win : 0,
+                    lose : 0
+                    };
+          wins.innerHTML = 'Wins:' + score.win;
+          lose.innerHTML = 'Lose:' + score.lose;
+          draw.innerHTML = 'Draw:' + score.draw;
+          message.innerHTML = "Click Any Button To Start Playing"
+          }
           function playerMove(playerMove){
             const computerMove = Math.round(Math.random() * (3 - 1) + 1);
             let computer = ""
             if(computerMove === 1){
               computer = "Rock"
+              Comp_Choice.innerHTML = "Computer Choose: Rock"
             }else if(computerMove === 2){
               computer = "Paper"
+              Comp_Choice.innerHTML = "Computer Choose: Paper"
             }else{
               computer = "Scissor"
+              Comp_Choice.innerHTML = "Computer Choose: Scissor"
             }
             let result = "";
             if (playerMove === computerMove){
               result = "draw";
               score.draw++;
               draw.innerHTML = "Draw:" + score.draw;
+              message.innerHTML = "It's a Draw"
             }else if(playerMove === 1){
                     if(computerMove === 2){
                       result = "lose";
                       score.lose++;
                       lose.innerHTML = "Lose:" + score.lose;
+                      message.innerHTML = "You Lose!!!";
                     }else{
                       result = "win";
                       score.win++;
                       wins.innerHTML = "Wins:" + score.win;
+                      message.innerHTML = "You Win!!!";
                     }
             }else if(playerMove === 2){
                     if(computerMove === 1){
                       result = "win";
                       score.win++;
                       wins.innerHTML = "Wins:" + score.win;
+                      message.innerHTML = "You Win!!!";
                       }else{
                         result = "lose";
                         score.lose++;
                         lose.innerHTML = "Lose" + score.lose;
+                        message.innerHTML = "You Lose!!!";
                       }
             }else if(playerMove === 3){
                     if(computerMove === 1){
                       result = "lose";
                       score.lose++;
                       lose.innerHTML = "Lose" + score.lose;
+                      message.innerHTML = "You Lose!!!";
                     }else{
                       result = "win";
                       score.win++;
                       wins.innerHTML = "Wins:" + score.win;
+                      message.innerHTML = "You Win!!!";
                     }
             }
             // alert(`Computer chose ${computer}, result is ${result}\n 
@@ -99,6 +120,12 @@
             //         Lose : ${score.lose}\n
             //         Draw : ${score.draw}`);
           }
+          let wins = document.getElementById("Wins");
+          let lose = document.getElementById("Lose");
+          let draw = document.getElementById("Draw");
+          let Comp_Choice = document.getElementById("Comp_Choice");
+          let Player_Choice = document.getElementById("Player_choice");
+          let message = document.getElementById("message");
         </script>
     </body>
 </html>
