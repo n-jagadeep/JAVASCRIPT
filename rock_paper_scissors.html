@@ -6,6 +6,8 @@
         </title>
     </head>
     <body>
+        <p> Rock Paper Scissors Game</p>
+        <p>
 
         <button onclick="playerMove(1);">
             Rock
@@ -16,10 +18,25 @@
         <button onclick="playerMove(3);">
             Scissor
         </button>
+        </p>
+        <p>
+          <div id="Wins">
+            Wins:
+          </div>
+          <div id="Lose">
+            Lose:
+          </div>
+          <div id="Draw">
+            Draw:
+          </div>
+        </p>
         <button onclick="score = {draw : 0,
           win : 0,
           lose : 0
-          };">
+          };
+          wins.innerHTML = 'Wins:' + score.win;
+          lose.innerHTML = 'Lose:' + score.lose;
+          draw.innerHTML = 'Draw:' + score.draw;">
             Reset
         </button>
         <script>
@@ -28,6 +45,9 @@
             win : 0,
             lose : 0
           };
+          let wins = document.getElementById("Wins");
+          let lose = document.getElementById("Lose");
+          let draw = document.getElementById("Draw");
           function playerMove(playerMove){
             const computerMove = Math.round(Math.random() * (3 - 1) + 1);
             let computer = ""
@@ -42,35 +62,42 @@
             if (playerMove === computerMove){
               result = "draw";
               score.draw++;
+              draw.innerHTML = "Draw:" + score.draw;
             }else if(playerMove === 1){
                     if(computerMove === 2){
                       result = "lose";
                       score.lose++;
+                      lose.innerHTML = "Lose:" + score.lose;
                     }else{
                       result = "win";
                       score.win++;
+                      wins.innerHTML = "Wins:" + score.win;
                     }
             }else if(playerMove === 2){
                     if(computerMove === 1){
                       result = "win";
                       score.win++;
+                      wins.innerHTML = "Wins:" + score.win;
                       }else{
                         result = "lose";
                         score.lose++;
+                        lose.innerHTML = "Lose" + score.lose;
                       }
             }else if(playerMove === 3){
                     if(computerMove === 1){
                       result = "lose";
                       score.lose++;
+                      lose.innerHTML = "Lose" + score.lose;
                     }else{
                       result = "win";
                       score.win++;
+                      wins.innerHTML = "Wins:" + score.win;
                     }
             }
-            alert(`Computer chose ${computer}, result is ${result}\n 
-                    Wins : ${score.win}\n
-                    Lose : ${score.lose}\n
-                    Draw : ${score.draw}`);
+            // alert(`Computer chose ${computer}, result is ${result}\n 
+            //         Wins : ${score.win}\n
+            //         Lose : ${score.lose}\n
+            //         Draw : ${score.draw}`);
           }
         </script>
     </body>
