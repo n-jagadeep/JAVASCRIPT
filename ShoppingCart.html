@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Shopping Cart 
+        </title>
+    </head>
+    <body>
+        <button id ="showQuantity" onclick="showQuantity();">
+            Show Quantity
+        </button>
+        <button id="addtocart" onclick="addtocart(1);">Add to Cart</button>
+        <button id="plustwo" onclick="addtocart(2);">+2</button>
+        <button id="plusthree" onclick="addtocart(3);">+3</button>
+        <button id="plusfour" onclick="addtocart(4);">+4</button>
+        <button id="plusfive" onclick="addtocart(5);">+5</button>
+        <button id="removeoneitem" onclick="removeoneitem(1);">Remove from Cart</button>
+        <button id="removetwo" onclick="removeoneitem(2);">-2</button>
+        <button id="removethree" onclick="removeoneitem(3);">-3</button>
+        <button id="clearcart" onclick="clearCart();">Clear Cart</button><br><br>
+        <span>
+            Cart Quantity:<span id="cartQuantity"></span>
+        </span>
+        <script>
+          let cartQuantity = parseInt(localStorage.getItem("cartQuantity"));
+          let cart = document.getElementById("cartQuantity");
+          function showQuantity(){
+            cart.innerText = localStorage.getItem("cartQuantity");
+          }
+          function addtocart(amount){
+            cartQuantity = cartQuantity + amount;
+            localStorage.setItem("cartQuantity",cartQuantity);
+            cart.innerText = localStorage.getItem("cartQuantity");
+          }
+          function removeoneitem(amount){
+            cartQuantity = cartQuantity - amount;
+            localStorage.setItem("cartQuantity",cartQuantity);
+            cart.innerText = localStorage.getItem("cartQuantity");
+          }
+          function clearCart(){
+            cartQuantity = 0;
+            localStorage.setItem("cartQuantity",cartQuantity);
+            cart.innerText = localStorage.getItem("cartQuantity");
+          }
+        </script>
+    </body>
+</html>
