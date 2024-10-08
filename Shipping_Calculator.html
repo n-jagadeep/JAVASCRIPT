@@ -4,13 +4,19 @@
         <title>
             Shipping Calculator
         </title>
+        <style>
+          .input{
+            border: 2;
+
+          }
+        </style>
     </head>
     <body>
         <h1>Shipping Calculator</h1>
         <p>Orders Under $40 = +$10 Shipping</p>
         <p>Orders Over $40 free shipping</p>
         <label>Shipping Amount
-          <input id="Shipping_amount" placeholder="Cost"
+          <input class="input" id="Shipping_amount" placeholder="Cost"
                   onkeydown="checkEnter(event.key);">
         </label>
         <button onclick="shippingCost();">Calculate</button><br><br>
