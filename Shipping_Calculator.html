@@ -10,7 +10,8 @@
         <p>Orders Under $40 = +$10 Shipping</p>
         <p>Orders Over $40 free shipping</p>
         <label>Shipping Amount
-          <input id="Shipping_amount" placeholder="Cost">
+          <input id="Shipping_amount" placeholder="Cost"
+                  onkeydown="checkEnter(event.key);">
         </label>
         <button onclick="shippingCost();">Calculate</button><br><br>
         <span id="FinalCost">Shipping Cost:</span>
@@ -23,7 +24,12 @@
             if(cost<40){
               cost = cost+10;
             }
-            final.innerText = "Shipping Cost:" + cost;
+            final.innerText = "Shipping Cost:$" + cost;
+          }
+          function checkEnter(key){
+            if(key == "Enter"){
+              shippingCost();
+            }
           }
         </script>
     </body>
