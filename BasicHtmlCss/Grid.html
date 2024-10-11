@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+
+    </title>
+    <style>
+      .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: auto;
+      }
+      .grid2{
+        display: grid;
+        grid-template-columns: 1fr;
+        background-color: lightblue;
+      }
+      .thumbnail{
+        display: grid;
+        grid-template-columns: 1fr ;
+        width: auto;
+      }.img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 30px;
+      }
+      .profilepic{
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        object-fit:contain;
+        padding-right: 10px;
+      }.desc{
+        display: grid;
+        grid-template-columns: 70px 1fr;
+      }.rows{
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+      }.discription{
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: white;
+      }body{
+        background-color: rgba(0, 0, 0, 0.9);
+      }.channelname{
+        color: rgb(184, 178, 178);
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: small;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="thumbnail">
+        <img src="test2.jpg" class="img">
+        <div class="desc">
+          <img class="profilepic" src="test 1.png">
+          <div class="rows">
+            <div class="discription">
+              Naruto Finally reveals his father minato 
+            </div>
+            <div class="channelname">
+              naruto talkies<br>
+              No views . 1 month ago
+            </div>
+          </div>
+        </div>
+        <div class="thumbnail">
+          <img src="test2.jpg" class="img">
+          <div class="desc">
+            <img class="profilepic" src="test 1.png">
+            <div class="rows">
+              <div class="discription">
+                Naruto Finally reveals his father minato 
+              </div>
+              <div class="channelname">
+                naruto talkies<br>
+                No views . 1 month ago
+              </div>
+            </div>
+          </div>
+      </div>
+  </body>
+</html>
